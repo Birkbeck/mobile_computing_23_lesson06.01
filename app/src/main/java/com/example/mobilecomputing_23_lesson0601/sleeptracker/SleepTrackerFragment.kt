@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mobilecomputing_23_lesson0601.database.SleepDatabase
 import com.example.mobilecomputing_23_lesson0601.R
 import com.example.mobilecomputing_23_lesson0601.databinding.FragmentSleepTrackerBinding
@@ -72,6 +73,9 @@ class SleepTrackerFragment : Fragment() {
         // Specify the current activity as the lifecycle owner of the binding.
         // This is necessary so that the binding can observe LiveData updates.
         binding.lifecycleOwner = this
+
+        val manager = GridLayoutManager(activity, 5, GridLayoutManager.VERTICAL, false)
+        binding.sleepList.layoutManager = manager
 
         // Add an Observer on the state variable for showing a Snackbar message
         // when the CLEAR button is pressed.
